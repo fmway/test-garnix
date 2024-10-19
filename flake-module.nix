@@ -11,10 +11,18 @@
         {
           garnix.server.enable = true;
           nixpkgs.hostPlatform = "x86_64-linux";
-          services.nginx.enable = true;
           security.sudo.wheelNeedsPassword = false;
           services.openssh.enable = true;
           networking.firewall.allowedTCPPorts = [ 80 ];
+        }
+        {
+          services.caddy.enable = true;
+          services.caddy.virtualHosts."default" = {
+            extraConfig = ''
+              root * ${./public}
+              file_server
+            '';
+          };
         }
       ];
     };
