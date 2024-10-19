@@ -17,7 +17,7 @@
         }
         {
           services.caddy.enable = true;
-          services.caddy.virtualHosts."default" = {
+          services.caddy.virtualHosts."https://server.main.test-garnix.fmway.garnix.me" = {
             extraConfig = ''
               root * ${./public}
               file_server
