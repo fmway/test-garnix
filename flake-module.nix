@@ -1,12 +1,10 @@
 { self, lib, inputs, ... }:
 {
-  perSystem = { config, self', inputs', pkgs, system, ... }: {
-    nixosConfiguration.server = pkgs.lib.nixosSystem {
+  flake = {
+    nixosConfigurations.server = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       modules = [
         inputs.garnix-lib.nixosModules.garnix
-        {
-          _module.args = { inherit self inputs; };
-        }
       ];
     };
   };
