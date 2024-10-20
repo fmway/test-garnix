@@ -43,10 +43,10 @@
           # This lets NixOS know this is a "real" user rather than a system user,
           # giving you for example a home directory.
           isNormalUser = true;
-          description = "me";
+          description = "fmway";
           extraGroups = [ "wheel" "systemd-journal" ];
           openssh.authorizedKeys.keys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPyjA20DdCiceuM3w328rtf8yv1FkawYhO/4zP7LWarc"
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKI9FTK016k949uoOby8U4BDa92wocG50DWXZD40OxGI fm18lv@gmail.com"
           ];
         };
         }
