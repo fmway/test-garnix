@@ -24,7 +24,10 @@
           # };
           security.sudo.wheelNeedsPassword = false;
           services.openssh.enable = true;
-          networking.firewall.allowedTCPPorts = [ 80 ];
+          networking.firewall.allowedTCPPorts = [ 80 22 ];
+          nix.settings = {
+            experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
+          };
         }
         {
           services.caddy.enable = true;
@@ -34,6 +37,18 @@
               file_server
             '';
           };
+        }
+        {
+          users.users.fmway = {
+          # This lets NixOS know this is a "real" user rather than a system user,
+          # giving you for example a home directory.
+          isNormalUser = true;
+          description = "me";
+          extraGroups = [ "wheel" "systemd-journal" ];
+          openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPyjA20DdCiceuM3w328rtf8yv1FkawYhO/4zP7LWarc"
+          ];
+        };
         }
       ];
     };
