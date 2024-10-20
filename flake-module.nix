@@ -46,7 +46,7 @@
           description = "fmway";
           extraGroups = [ "wheel" "systemd-journal" ];
           openssh.authorizedKeys.keys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKI9FTK016k949uoOby8U4BDa92wocG50DWXZD40OxGI fm18lv@gmail.com"
+            "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDddMpFZp3RjlW73Dwpi8FGtY/SGCqb7Fj7dTbIno7FRRDkGJsUEwywbBZxhDhTFqP9h0z59OAxmM5PsfHiCq3jqdFSIp2hyLe+j16uMwRViiPSQ3zWuuTDZ84KEIwp4yn90SOGe6+Gnb7fR3h89l3MMyd51ajd6z73kc6Z+IFG1cTYXKhZ0UmIXkHQihoZyiE33ymBw1zwajM296AYWxzvaAF6J/uHOFFXIzqtG5NOamqnb13BWaF/iBoI3MwHrQ/m5Tn7DtqGrMXnamH5CWAV6W5QgWXe9O+4YurA/5rqXcEdi5vhRrS9snJo/d2emsYP2FUr21RvXGS/ZsiJlhnqVsHNlmfKwBmhFaItaPDGWD965BMi096uRNreics5OqgVZrNMxxgPMsDQEhNAJ0NO61sEluSsXo/XA/C4jxPYjWuPJaOWAmPVMaF+0z2fh9Osi0Db3TOr2wYxeYMNa/uTETWZIcyKnEujYrsodzCCuFe8bhRBM2B111sp39NvuVBRuQR9nzJC361LwxCgp2U7LlpB4FLYzpcceE0JTf5PRnQt4tX3gASxooWQ0ELweYzTQ23fWGAQf2HV1U9Y2QfhTZJm8Bee1ZXN2P+PpJKFCvYeVGGcQ8qTz+wTZd7dW7s1TdtmeaEhrP4o5V4lEjAJf3ZxmhgVODqw+hObiy/EDQ== fm18lv@gmail.com"
           ];
         };
         }
