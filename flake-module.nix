@@ -11,17 +11,17 @@
         {
           garnix.server.enable = true;
           nixpkgs.hostPlatform = "x86_64-linux";
-          services.nginx = {
-            enable = true;
-            recommendedProxySettings = true;
-            recommendedOptimisation = true;
-            recommendedGzipSettings = true;
-            virtualHosts = {
-              "default" = {
-                locations."/".root = ./public;
-              };
-            };
-          };
+          # services.nginx = {
+          #   enable = true;
+          #   recommendedProxySettings = true;
+          #   recommendedOptimisation = true;
+          #   recommendedGzipSettings = true;
+          #   virtualHosts = {
+          #     "default" = {
+          #       locations."/".root = ./public;
+          #     };
+          #   };
+          # };
           security.sudo.wheelNeedsPassword = false;
           services.openssh.enable = true;
           networking.firewall.allowedTCPPorts = [ 80 ];
