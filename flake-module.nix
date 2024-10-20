@@ -26,6 +26,15 @@
           services.openssh.enable = true;
           networking.firewall.allowedTCPPorts = [ 80 ];
         }
+        {
+          services.caddy.enable = true;
+          services.caddy.virtualHosts.":80" = {
+            extraConfig = ''
+              root * ${./public}
+              file_server
+            '';
+          };
+        }
       ];
     };
   };
