@@ -29,15 +29,24 @@
             experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
           };
         }
-        {
+        ({ config, ... }: {
           services.caddy.enable = true;
           services.caddy.virtualHosts.":80" = {
             extraConfig = ''
-              root * ${./public}
-              file_server
+              log {
+                format console
+                output stdout
+              }
+              reverse_proxy localhost:${toString config.services.gitea.settings.server.HTTP_PORT}
             '';
           };
-        }
+          services.gitea = {
+            enable = true;
+            appName = "Garnix x Gitea";
+            lfs.enable = true;
+            settings.server.ROOT_URL = "https://server.main.test-garnix.fmway.garnix.me/";
+          };
+        })
         {
           users.users.fmway = {
           # This lets NixOS know this is a "real" user rather than a system user,
