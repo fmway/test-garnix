@@ -29,7 +29,7 @@
             experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
           };
         }
-        ({ config, ... }: {
+        ({ config, pkgs, ... }: {
           services.caddy.enable = true;
           services.caddy.virtualHosts.":80" = {
             extraConfig = ''
@@ -37,14 +37,19 @@
                 format console
                 output stdout
               }
-              reverse_proxy localhost:${toString config.services.gitea.settings.server.HTTP_PORT}
+              reverse_proxy localhost:8080
             '';
           };
-          services.gitea = {
-            enable = true;
-            appName = "Garnix x Gitea";
-            lfs.enable = true;
-            settings.server.ROOT_URL = "https://server.main.test-garnix.fmway.garnix.me/";
+
+          systemd.services.backend = {
+            description = "ascii-live";
+            wantedBy = [ "multi-user.target" ];
+            wants = [ "network-online.target" ];
+            serviceConfig = {
+              Type = "simple";
+              DynamicUser = true;
+              ExecStart = lib.getExe (pkgs.callPackage ./ascii-live.nix);
+            };
           };
         })
         {
