@@ -48,7 +48,7 @@
             serviceConfig = {
               Type = "simple";
               DynamicUser = true;
-              ExecStart = lib.getExe (pkgs.callPackage ./ascii-live.nix);
+              ExecStart = lib.getExe (pkgs.callPackage ./ascii-live.nix {});
             };
           };
         })
